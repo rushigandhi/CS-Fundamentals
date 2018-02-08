@@ -13,13 +13,10 @@ def find_shortest_path(graph, starting_node, ending_node, path = list()):
     for node in graph[starting_node]:
 
         if node not in path:
-
             new_path = find_shortest_path(graph, node, ending_node, path)
 
             if new_path:
-
                 if not shortest_path or len(new_path) < len(shortest_path):
-
                     shortest_path = new_path
 
     return shortest_path

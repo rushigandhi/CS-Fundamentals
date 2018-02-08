@@ -11,11 +11,9 @@ def find_path(graph, starting_node, ending_node, path = list()):
     for node in graph[starting_node]:
 
         if node not in path:
-
             new_path = find_path(graph, node, ending_node, path)
 
             if new_path:
-
                 return new_path
 
     return None

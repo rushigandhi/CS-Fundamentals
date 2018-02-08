@@ -14,10 +14,10 @@ def find_all_paths(graph, starting_node, ending_node, path = list()):
     for node in graph[starting_node]:
 
         if node not in path:
-
             new_paths = find_all_paths(graph, node, ending_node, path)
 
             for new_path in new_paths:
+
                 paths.append(new_path)
 
     return paths
