@@ -1,10 +1,10 @@
-def dfs_all_paths(graph, starting_node,  ending_node):
+def bfs_all_paths(graph, starting_node,  ending_node):
 
-    stack = [(starting_node, [starting_node])]
+    queue = [(starting_node, [starting_node])]
 
-    while stack:
+    while queue:
 
-        (vertex, path) = stack.pop()
+        (vertex, path) = queue.pop()
 
         for next_node in graph[vertex] - set(path):
 
@@ -12,7 +12,7 @@ def dfs_all_paths(graph, starting_node,  ending_node):
                 yield path + [next_node]
 
             else:
-                stack.append((next_node, path + [next_node]))
+                queue.append((next_node, path + [next_node]))
 
 
 graph = {'A': set(['B', 'C']),
@@ -35,4 +35,4 @@ final = input()
 # for i in dfs_all_paths(graph, initial, final):
 #     all_paths.append(i)
 
-print("The path is", list(dfs_all_paths(graph, initial, final)))
+print("The path is", list(bfs_all_paths(graph, initial, final)))
